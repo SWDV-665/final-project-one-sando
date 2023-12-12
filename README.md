@@ -59,5 +59,5 @@ ionic serve
 ![screenshot](/screenshots/screenshot10.png)
 
 
-References:
+## References:  
 Images provided by: https://www.flaticon.com/
