@@ -1,0 +1,58 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      {{title}}
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="ion-margin">
+    <ion-header collapse="condense">
+      <ion-toolbar>
+        <ion-title size="large">{{title}}</ion-title>
+      </ion-toolbar>
+    </ion-header>
+    <h3 class="ion-text-center" *ngIf="blogs.length === 0">
+      No blogs at this time.
+    </h3>
+
+    <ion-list *ngFor="let blog of blogs; let i = index">
+      <ion-item class="border-bottom">
+        <ion-card>
+          <ion-card-header>
+            <ion-card-subtitle color="medium" *ngIf="blog.createdAt && blog.updatedAt && blog.createdAt !== blog.updatedAt">Updated at: {{ blog.updatedAt | date: 'medium' }}</ion-card-subtitle>
+            <ion-card-subtitle color="medium" *ngIf="!blog.updatedAt || blog.createdAt === blog.updatedAt">Posted at: {{ blog.createdAt | date: 'medium' }}</ion-card-subtitle>
+            <ion-card-title>
+              <span class="fs-1 flex-container">
+                <img class="profile-image" src="/assets/images/face0.png">
+                {{blog.title}}
+                <ion-button class="button-no-padding" fill="none" (click)="shareBlog(blog)">
+                  <ion-icon class="bigger-icon" name="share-outline"></ion-icon>
+                </ion-button>
+              </span>
+            </ion-card-title>
+          </ion-card-header>
+          
+          <ion-card-content>
+            <p class="fs-1">{{blog.message}}</p>
+            <p>Posted from: {{blog.address}} </p>
+          </ion-card-content>
+
+          <ion-button color="light" (click)="editBlog(blog)">
+            <ion-icon name="create-outline"></ion-icon>
+          </ion-button>
+          <ion-button color="danger" (click)="removeBlog(blog)">
+            <ion-icon name="trash"></ion-icon>
+          </ion-button>
+        </ion-card>
+      </ion-item>
+    </ion-list>
+  </div>
+</ion-content>
+
+<ion-fab slot="fixed" horizontal="end" vertical="bottom">
+  <ion-fab-button (click)="addBlog()">
+    <ion-icon name="add"></ion-icon>
+  </ion-fab-button>
+</ion-fab>

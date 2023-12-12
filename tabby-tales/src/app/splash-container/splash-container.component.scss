@@ -1,0 +1,44 @@
+.home-container {
+  text-align: center;
+
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.home-image {
+  max-width: 200px;
+}
+
+.home-title {
+  font-family: 'Lobster';
+  text-shadow: 2px 2px 4px black;
+}
+
+.img-one {
+  background-image: url("/assets/images/pet-small.png");
+  background-size: auto; 
+  background-repeat: repeat;
+}
+
+.img-two {
+  background-image: url("/assets/images/cat-toy-small.png");
+  background-size: auto; 
+  background-repeat: repeat;
+}
+
+.img-three {
+  background-image: url("/assets/images/foot-print-small.png");
+  background-size: auto; 
+  background-repeat: repeat;
+}
+
+.h-full {
+  height: 850px;
+}
+
+.carousel-indicators button {
+  background-color: white; /* Makes the button background white */
+}
