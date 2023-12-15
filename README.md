@@ -9,10 +9,11 @@ This application will feature:
 - Profile
 - Posts(Blogs)
 - Added Geolocation (https://ionicframework.com/docs/native/geolocation)
-- Added Share
+- Added Share (https://ionicframework.com/docs/native/share)
 
 The application will utilize:
 - MongoDB 
+- Google Locator API
 - User Interface
 
 ## Build
@@ -30,6 +31,12 @@ brew services stop mongodb-community@7.0
 ## Start Sever
 ```bash
 cd express_server
+# Deny location data if both GOOGLE_API_KEY/GOOGLE_ENDPOINT are not provided
+# This step can be skipped if denying
+vi .env # must add two environment variables
+# add GOOGLE_ENDPOINT = 'https://maps.googleapis'
+# add GOOGLE_API_KEY = ''
+
 npm install
 npm start
 
